@@ -1,24 +1,37 @@
-import logo from './logo.svg';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import NavBar from './components/NavBar/Navbar';
+import Home from './components/Home/home';
+import Footer from './components/Footer/footer';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Activities from './Pages/Activities/activities';
+import HealthSign from './Pages/HealthSign/healthsign';
+import StatusData from './Pages/StatusData/statusdata';
+
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+             <>     
+             
+      <BrowserRouter> 
+      <NavBar />     
+  <Home />  
+      <Routes>        
+          <Route path="/Home" exact component={Home} element={<Home />} />
+          <Route path="/Activities" component={Activities} element={<Activities/>}/>
+          <Route path="/HealthSign" component={HealthSign} element={<HealthSign/>}/>
+          <Route path="/StatusData" component={StatusData} element={<StatusData/>}/>
+        
+        </Routes> 
+
+<Footer />
+      
+
+      </BrowserRouter>
+    </>
+     
   );
 }
 
